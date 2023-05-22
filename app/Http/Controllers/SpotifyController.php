@@ -9,16 +9,15 @@ class SpotifyController extends Controller
 {   
     private $clientId;
     private $clientSecret;
-    private $redirectUri = 'http://spovel.loc:8085/profile/';
+    private $redirectUri = 'http://localhost:8000/profile';
 
     public function __construct(){
         $this->clientId = config('spotify.clientId');
         $this->clientSecret = config('spotify.clientSecret');   
     }
 
-    public function login()
-    {
-        $scopes = 'user-read-private user-read-email';
+    public function login() {
+        $scopes = 'user-read-private user-read-email user-top-read';
         return redirect(
             'https://accounts.spotify.com/authorize' .
                             '?response_type=code' .
@@ -41,16 +40,31 @@ class SpotifyController extends Controller
             'grant_type' => 'authorization_code',
         ]);
         
-        return $response->json()['access_token'];
-    }
+        $_SESSION['token'] = $response;
+        
+        return $response;
 
+    }
     public function getUser() {
-        $token = $this->getToken();
+        session_start();
+        if (isset($_SESSION['token'])) {
+            $token = $_SESSION['token'];
+        } else {
+            $token = $this->getToken();
+        }
 
         $profile = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $token])
+            'Authorization' => 'Bearer ' . $token->json()['access_token']])
             ->get('https://api.spotify.com/v1/me');
+
+        $artists = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $token->json()['access_token']])
+            ->get('https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=10');
+
+        $songs = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $token->json()['access_token']])
+            ->get('https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10');
         
-        return view('profile')->with(['profile' => $profile->json()]); 
+        return view('profile')->with(['profile' => json_decode($profile), 'artists' => json_decode($artists), 'songs' => json_decode($songs)]); 
     }
 }

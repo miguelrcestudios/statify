@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Example of the Authorization Code flow with Spotify</title>
+    <title>{{env('APP_NAME')}} - Iniciar sesión</title>
 </head>
 <body>
     <h1>This is an example of the Authorization Code flow</h1>
