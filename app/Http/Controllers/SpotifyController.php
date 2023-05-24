@@ -45,6 +45,7 @@ class SpotifyController extends Controller
         return $response;
 
     }
+    
     public function getUser() {
         session_start();
         if (isset($_SESSION['token'])) {

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ URL::asset('css/web.css') }}" rel="stylesheet">
     <title>{{env('APP_NAME')}} - Perfil</title>
 </head>
 <body>
     <h2>Perfil del Usuario</h2>
 
-    @extends('layouts.app')
-    @section('content')
+    {{-- @extends('layouts.app') --}}
+    {{-- @section('content') --}}
     @if (isset($profile->images[0]))
         <img src="{{$profile->images[0]->url}}" alt="" height="200px" width="200px">
     @else
@@ -69,7 +70,7 @@
             <p>No hay canciones</p>
         @endforelse
     </section>
-    @endsection
+    {{-- @endsection --}}
     
 </body>
 </html>

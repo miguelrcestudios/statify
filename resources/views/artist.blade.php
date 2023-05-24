@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ URL::asset('css/web.css') }}" rel="stylesheet">
     <title>{{env('APP_NAME')}} - {{$artist->name}}</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
     <section>
         <h4>Géneros</h4>
         @forelse ($artist->genres as $genre)
-        <article>
+        <article class="genre">
             <p>{{$genre}}</p>
         </article>
         @empty
