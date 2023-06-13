@@ -8,10 +8,20 @@
     <title>{{env('APP_NAME')}} - Canciones</title>
 </head>
 <body>
-    <section>
-        <h3>Canciones</h3>
-        <?php $i = 0 ?>
-        @forelse ($songs->items as $song)
+    <header class="menu">
+        @include('layouts/header')
+    </header>
+    
+    <section class="contenido">
+        <section class="submenu">                
+            <h3>Canciones</h3>
+                <a href="/songs/short_term" @if($tiempo == 'short_term') class="green" @endif>4 semanas</a>
+                <a href="/songs/medium_term" @if($tiempo == 'medium_term') class="green" @endif>6 meses</a>
+                <a href="/songs/long_term" @if($tiempo == 'long_term') class="green" @endif>Siempre</a>
+        </section>
+        <section class="songs">
+            <?php $i = 0 ?>
+            @forelse ($songs->items as $song)
             <?php $i++ ?>
             <article>
                 <img src="{{$song->album->images[0]->url}}" alt="" width="100px"> 
@@ -19,16 +29,17 @@
                 <p>
                     @foreach ($song->artists as $artist)
                         @if($loop->count == $loop->iteration)
-                            <a href="/artist/{{$artist->id}}">{{$artist->name }}</a>
+                            <a href="/artist/{{$artist->id}}" class="artistSong">{{$artist->name }}</a>
                         @else
-                            <a href="/artist/{{$artist->id}}">{{$artist->name }}</a>,
+                            <a href="/artist/{{$artist->id}}" class="artistSong">{{$artist->name }}</a>,
                         @endif
                     @endforeach
                 </p>
             </article>
-        @empty
+            @empty
             <p>No hay canciones</p>
-        @endforelse
+            @endforelse
+        </section>
     </section>
 </body>
 </html>

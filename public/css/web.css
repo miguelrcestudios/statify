@@ -5,7 +5,12 @@ body {
     background-color: black;
     color: white;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
+
+/* h1, h2, h3, h4, h5, h6 {
+    margin: auto;
+} */
 
 a {
     color: white;
@@ -13,11 +18,99 @@ a {
 }
 
 a:hover {
-    color: lightgray;
+    color: #AAA;
     text-decoration: none;
 }
 
-a:visited {
-    color: white;
-    text-decoration: none;
+.contenido {
+    max-width: 1200px;
+    margin: auto;
 }
+
+@media screen and (max-width: 1300px) {
+    .contenido {
+        margin: auto 4%;
+    }
+}
+
+.menu {
+    background-color: #333;
+    margin: 0;
+    margin-bottom: 1em;
+    height: 80px;
+}
+
+
+.btnSpotify {
+    background-color:#1DB954; 
+    color:white; 
+    text-decoration:none;
+    border-radius: 2em; 
+    padding: .75em;
+}
+
+.btnSpotify:hover {
+    background-color:#1db954AA;
+}
+
+.artistSong {
+    color: #999;
+}
+
+.artistSong:hover {
+    color: #666;
+}
+
+.submenu {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.green {
+    color: #1DB954;
+}
+
+.submenu h3{
+    margin-right: 50px;
+}
+
+.submenu a {
+    padding: 10px;
+    margin: auto 0;
+}
+
+.submenu a:hover {
+    background-color: #1DB954;
+    color: black;
+}
+
+.artists, 
+.songs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .perfil {
+        display: grid;
+        align-items: center;
+        grid-template-columns: auto 50px;
+        grid-template-areas:    'imagen imagen' 
+                                'nombre nacionalidad'
+                                'seguidores seguidores'
+                                'spotify spotify';
+    }
+
+    .submenu {
+        flex-direction: column;
+    }
+
+    .artists, 
+    .songs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+}
+

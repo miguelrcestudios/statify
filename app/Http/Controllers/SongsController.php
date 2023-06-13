@@ -15,7 +15,7 @@ class SongsController extends Controller
             'Authorization' => 'Bearer ' . $token->json()['access_token']])
             ->get('https://api.spotify.com/v1/me/top/tracks?time_range='.$time_range.'&limit=50');
         
-        return view('songs')->with(['songs' => json_decode($songs)]); 
+        return view('songs')->with(['songs' => json_decode($songs), 'tiempo' => $time_range]); 
     }
 
     public function getSong($id_song) {

@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 6em;
+}
+
+h1 {
+    font-size: 70px;
+    margin: 2em .5em 0;
+}
+
+h2 {
+    font-size: 26px;
+    color: #AAA;
+    padding-bottom: 0;
+}
+
+a {
+    background-color:#1DB954; 
+    color:white; 
+    text-decoration:none; 
+    font-size: 20px;
+    border-radius: 2em; 
+    padding: .75em;
+}
+
+a:hover {
+    background-color:#1db954AA;
+}

@@ -8,18 +8,24 @@
     <title>{{env('APP_NAME')}} - Cancion</title>
 </head>
 <body>
-    <img src="{{$song->album->images[0]->url}}" alt="" height="200px" width="200px">
-    <p>{{$song->name}}</p>
-    <p>
-        @foreach ($song->artists as $artist)
-            @if($loop->count == $loop->iteration)
+    <header class="menu">
+        @include('layouts/header')
+    </header>
+
+    <section class="contenido">
+        <img src="{{$song->album->images[0]->url}}" alt="" height="200px" width="200px">
+        <p>{{$song->name}}</p>
+        <p>
+            @foreach ($song->artists as $artist)
+                @if($loop->count == $loop->iteration)
                 <a href="/artist/{{$artist->id}}">{{$artist->name }}</a>
-            @else
-                <a href="/artist/{{$artist->id}}">{{$artist->name }}</a>,
-            @endif
-        @endforeach
-    </p>
-    <p>Popularidad: {{$song->popularity}}</p>
-    <a href="{{$song->external_urls->spotify}}" target="blank"><button>Reproducir en Spotify</button></a>
+                @else
+                    <a href="/artist/{{$artist->id}}">{{$artist->name }}</a>,
+                @endif
+            @endforeach
+        </p>
+        <p>Popularidad: {{$song->popularity}}</p>
+        <a href="{{$song->external_urls->spotify}}" target="blank" class="btnSpotify">Reproducir en Spotify</a>
+    </section>
 </body>
 </html>

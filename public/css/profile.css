@@ -1,0 +1,63 @@
+
+
+.perfil {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 200px auto 200px;
+    grid-row: auto auto auto;
+    grid-template-areas:    'imagen nombre nacionalidad'
+                            'imagen seguidores spotify'
+                            'imagen none none';
+}
+
+.imgPerfil {
+    grid-area: imagen;
+}
+
+.usuario {
+    grid-area: nombre;
+}
+
+.nacionalidad {
+    grid-area: nacionalidad;
+}
+
+.seguidores {
+    grid-area: seguidores;
+}
+
+.btnSpotify {
+    grid-area: spotify;
+    text-align: center;
+    padding: auto auto;
+}
+
+.btnSpotify {
+    background-color:#1DB954; 
+    color:white; 
+    text-decoration:none;
+    border-radius: 2em; 
+    padding: .5em;
+}
+
+.submenu {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.green {
+    color: #1DB954;
+}
+
+@media screen and (max-width: 600px) {
+    .perfil {
+        display: grid;
+        align-items: center;
+        grid-template-columns: auto 50px;
+        grid-template-areas:    'imagen imagen' 
+                                'nombre nacionalidad'
+                                'seguidores seguidores'
+                                'spotify spotify';
+    }
+}
+

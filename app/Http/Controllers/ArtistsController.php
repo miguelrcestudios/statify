@@ -15,7 +15,7 @@ class ArtistsController extends Controller
             'Authorization' => 'Bearer ' . $token->json()['access_token']])
             ->get('https://api.spotify.com/v1/me/top/artists?time_range='.$time_range.'&limit=50');
         
-        return view('artists')->with(['artists' => json_decode($artists)]); 
+        return view('artists')->with(['artists' => json_decode($artists), 'tiempo' => $time_range]); 
     }
 
     public function getArtist($id_artist) {

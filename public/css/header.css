@@ -1,0 +1,21 @@
+ul{
+    max-width: 1200px;
+    margin: auto;
+    height: 80px;
+    background-color: transparent;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+li {
+    padding: 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+li:hover {
+    background-color: #1DB954;
+}
