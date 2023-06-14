@@ -1,0 +1,87 @@
+.artist {
+    display: grid;
+    grid-template-columns: 250px auto 200px;
+    grid-template-rows: repeat(4, auto);
+}
+
+.imagen {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.nombre {
+    grid-column: 2/3;
+    grid-row: 1;
+}
+
+.seguidores {
+    grid-column: 2/3;
+    grid-row: 2;
+}
+
+.popularidad {
+    grid-column: 2/3;
+    grid-row: 3;
+}
+
+.btnSpotify {
+    grid-column: 3/4;
+    grid-row: 2;
+}
+
+.seccionGeneros {
+    grid-column: 1/4;
+    grid-row: 4;
+}
+
+.generos {
+    display: flex;
+    flex-wrap: wrap;
+}
+.genre {
+    margin: 2px 10px;
+    padding: 5px;
+    height: auto;
+    border: 1px solid #1db954;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .artist {
+        align-items: center;
+        grid-template-columns: auto;
+        grid-template-rows: 200px repeat(5, auto);
+    }
+
+    .imagen {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .nombre {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .seguidores {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .popularidad {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .seccionGeneros {
+        grid-column: 1;
+        grid-row: 5;
+    }
+    
+    .btnSpotify {
+        grid-column: 1;
+        grid-row: 6;
+    }
+}

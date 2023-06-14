@@ -24,7 +24,7 @@
             @forelse ($artists->items as $artist)
             <?php $i++ ?>
             <article class="artist">
-                <img src="{{$artist->images[0]->url}}" alt="" width="100px"> 
+                <img src="{{$artist->images[0]->url}}" alt="" width="100%"> 
                 <p>{{$i}}. <a href="/artist/{{$artist->id}}">{{$artist->name }}</a></p>
             </article>
             @empty

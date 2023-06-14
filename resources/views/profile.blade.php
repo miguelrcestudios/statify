@@ -44,7 +44,7 @@
                 @forelse ($artists->items as $artist)
                     <?php $i++ ?>
                     <article class="artist">
-                        <img src="{{$artist->images[0]->url}}" alt="" width="100px" height="100px"> 
+                        <img src="{{$artist->images[0]->url}}" alt="" class="imagen"> 
                         <p>{{$i}}. <a href="/artist/{{$artist->id}}">{{$artist->name }}</a></p>
                     </article>
                     @empty
@@ -65,7 +65,7 @@
                 @forelse ($songs->items as $song)
                 <?php $i++ ?>
                 <article class="song">
-                    <img src="{{$song->album->images[0]->url}}" alt="" width="100px" height="100px"> 
+                    <img src="{{$song->album->images[0]->url}}" alt="" class="imagen"> 
                     <p>{{$i}}. <a href="/song/{{$song->id}}">{{ $song->name }}</a></p>
                     <p>
                         @foreach ($song->artists as $artist)
